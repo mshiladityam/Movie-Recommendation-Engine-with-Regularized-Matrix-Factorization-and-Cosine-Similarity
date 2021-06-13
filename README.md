@@ -1,1 +1,1 @@
-# Movie-Recommendation-Engine-with-Regularized-Matrix-Factorization-and-Cosine-Similarity
+Movie Recommendation Engine using Regularized Matrix Factorization and Cosine Similarity
