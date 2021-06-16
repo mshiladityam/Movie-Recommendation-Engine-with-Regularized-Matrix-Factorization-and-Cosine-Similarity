@@ -2,7 +2,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy
 
-
 X=numpy.loadtxt("ACTUAL MATRIX.txt", dtype=float)
 Y=numpy.loadtxt("movie.txt", dtype=str, delimiter='|')
 
@@ -20,9 +19,9 @@ Action | Adventure | Animation |
               Thriller | War | Western |
 '''
 for j in range(num_of_movies):
-    moviename[int(Y[j][0])]=str(Y[j][1]);
+    moviename[int(Y[j][0])-1]=str(Y[j][1]);
    
-    movieid[str(Y[j][1])]=int(Y[j][0]);
+    movieid[str(Y[j][1])]=int(Y[j][0])-1;
     s=" "
     if (Y[j][5]=='1'): s+='Action '
     if (Y[j][6]=='1'): s+='Adventure '
@@ -54,7 +53,6 @@ user=user-1
 movee=str(input("Enter the name of the movie you would like your recommendations to be like: "))
 
 id=movieid[movee]
-
 ls=[]
 
 for j in range(num_of_movies):
@@ -64,6 +62,7 @@ def compare(itemID):
     return similarity_scores[id][itemID]      
         
 ls = sorted(ls, key= compare)
+
 
 
 print("The top 10 movies similar to ", movee, "not seen by user ", user+1, " are ");
